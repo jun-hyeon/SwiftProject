@@ -210,7 +210,9 @@ struct MyButton: View{
             
 
         case .change:
-            value = "\((Double(value) ?? 0.0) * -1)"
+            let result = (Double(value) ?? 0.0) * -1
+            value = checkInteger(result)
+            print(value)
            
         case .nine, .eight, .seven, .six, .five, .four, .three, .two, .one, .zero:
             let number = button.rawValue
