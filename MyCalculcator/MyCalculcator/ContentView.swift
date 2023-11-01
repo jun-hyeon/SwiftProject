@@ -48,22 +48,18 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        
         VStack{
-            Spacer()
-                
-            HStack{
-                Text(value)
-                    .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .font(.system(size: 60))
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
-            }//HStack
-            
-            
                 GeometryReader{ geometry in
                     VStack(){
+                        HStack{
+                            Text(value)
+                                .lineLimit(1)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .font(.system(size: 60))
+                                .fontWeight(.light)
+                                .foregroundStyle(.white)
+                                .padding()
+                        }//HStack
                         ForEach(buttons, id: \.self){ row in
                             HStack{
                                 ForEach(row, id: \.self){ button in
@@ -77,10 +73,7 @@ struct ContentView: View {
                         }//ForEach
                     }//VStack
                     .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                    
                 }//GeometryReader
-                
-            
         }//VStack
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -98,9 +91,9 @@ struct ContentView: View {
     
     func getHeight(button: CalcButton, proxy: GeometryProxy)->CGFloat{
         if button == .zero {
-            return (proxy.size.height - 10 * 6) / 6
+            return (proxy.size.height) / 8
         }else{
-            return (proxy.size.height - 10 * 6 ) / 5
+            return (proxy.size.height) / 8
         }
     }
 }
