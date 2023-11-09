@@ -45,7 +45,6 @@ class APIManager{
                 throw NetworkError.badUrl
             }
             
-//            var key = "zZbziiGEx8Q7PWGMJkAo5fLKADIBaXglXdyF3Wi8oIfTUJB3hYJjCxZj"
             
             let plistDict = Bundle.main.parsePlist()
             guard let api_key = plistDict["API_KEY"] as? String else{

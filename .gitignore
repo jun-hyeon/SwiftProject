@@ -96,7 +96,7 @@ iOSInjectionProject/
 ### Xcode ###
 
 ## Xcode 8 and earlier
-
+Info.plist
 ### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
