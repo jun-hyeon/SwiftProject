@@ -13,15 +13,15 @@ struct ContentView: View {
     
     
     var gridItem = [
-        GridItem(.flexible(minimum: 100)),
-        GridItem(.flexible(minimum: 100)),
-        GridItem(.flexible(minimum: 100))
+        GridItem(),
+        GridItem(),
+        GridItem()
         ]
     
     var body: some View {
         NavigationStack{
             ScrollView{
-                LazyVGrid(columns: gridItem, spacing: 10){
+                LazyVGrid(columns: gridItem, spacing: 5){
                     ForEach(photoStore.photos, id:  \.self){ photo in
                         ImageItem(urlString: photo.src.portrait)
                             .onAppear{
@@ -34,9 +34,12 @@ struct ContentView: View {
                                 }
                             }
                     }//ForEach
+                    
                 }//LazyGrid
+                
             }//scrollView
             .padding()
+            
         }// NavigationStack
         .onAppear{
             Task{

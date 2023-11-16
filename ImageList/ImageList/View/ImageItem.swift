@@ -20,9 +20,10 @@ struct ImageItem: View {
             Image(systemName: "arrow.circlepath")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 100)
         }
         .clipShape(RoundedRectangle(cornerRadius: 8))
-        
+        .frame(width: 200, height: 150)
 
     }
 }
