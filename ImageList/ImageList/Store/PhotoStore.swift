@@ -10,7 +10,7 @@ import Foundation
 class PhotStore: ObservableObject {
     @Published var photos = [Photo]()
     
-    
+    let apiManager = APIManager.apiManager
     
     func shouldLoadData(id: Int) -> Bool{
         return id == photos[photos.count - 10].id
@@ -18,7 +18,7 @@ class PhotStore: ObservableObject {
     
     func getImages(page: Int) async throws  -> [Photo]{
         
-        guard let data =  try await APIManager().load(page: page) else{
+        guard let data =  try await apiManager.load(page: page) else{
             return [Photo]()
         }
         

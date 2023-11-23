@@ -15,6 +15,9 @@
 		3D1DD5512AFA6C1F0088F038 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DD5502AFA6C1F0088F038 /* APIManager.swift */; };
 		3D1DD5532AFA766F0088F038 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DD5522AFA766F0088F038 /* PhotoStore.swift */; };
 		3DB132292AFBB85C00EE1032 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB132282AFBB85C00EE1032 /* ImageItem.swift */; };
+		3DFC70ED2B1D9DC100E30407 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DFC70EC2B1D9DC100E30407 /* CachedAsyncImage */; };
+		3DFC70EF2B1DA07E00E30407 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFC70EE2B1DA07E00E30407 /* ListItem.swift */; };
+		3DFC70F12B1DAF0A00E30407 /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFC70F02B1DAF0A00E30407 /* MyWebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,8 @@
 		3D1DD5502AFA6C1F0088F038 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		3D1DD5522AFA766F0088F038 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		3DB132282AFBB85C00EE1032 /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
+		3DFC70EE2B1DA07E00E30407 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		3DFC70F02B1DAF0A00E30407 /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFC70ED2B1D9DC100E30407 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,8 @@
 			children = (
 				3DB132282AFBB85C00EE1032 /* ImageItem.swift */,
 				3D1DD5412AFA67D70088F038 /* ContentView.swift */,
+				3DFC70EE2B1DA07E00E30407 /* ListItem.swift */,
+				3DFC70F02B1DAF0A00E30407 /* MyWebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +137,9 @@
 			dependencies = (
 			);
 			name = ImageList;
+			packageProductDependencies = (
+				3DFC70EC2B1D9DC100E30407 /* CachedAsyncImage */,
+			);
 			productName = ImageList;
 			productReference = 3D1DD53C2AFA67D70088F038 /* ImageList.app */;
 			productType = "com.apple.product-type.application";
@@ -157,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 3D1DD5332AFA67D70088F038;
+			packageReferences = (
+				3DFC70EB2B1D9DC100E30407 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = 3D1DD53D2AFA67D70088F038 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -184,6 +198,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB132292AFBB85C00EE1032 /* ImageItem.swift in Sources */,
+				3DFC70F12B1DAF0A00E30407 /* MyWebView.swift in Sources */,
+				3DFC70EF2B1DA07E00E30407 /* ListItem.swift in Sources */,
 				3D1DD5512AFA6C1F0088F038 /* APIManager.swift in Sources */,
 				3D1DD5532AFA766F0088F038 /* PhotoStore.swift in Sources */,
 				3D1DD5422AFA67D70088F038 /* ContentView.swift in Sources */,
@@ -394,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DFC70EB2B1D9DC100E30407 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DFC70EC2B1D9DC100E30407 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DFC70EB2B1D9DC100E30407 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D1DD5342AFA67D70088F038 /* Project object */;
 }

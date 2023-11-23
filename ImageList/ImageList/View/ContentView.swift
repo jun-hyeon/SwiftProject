@@ -11,7 +11,6 @@ struct ContentView: View {
     @StateObject var photoStore = PhotStore()
     @State var currentPage = 1
     
-    
     var gridItem = [
         GridItem(),
         GridItem(),
@@ -22,9 +21,13 @@ struct ContentView: View {
         NavigationStack{
             ScrollView{
                 LazyVGrid(columns: gridItem, spacing: 5){
-                    ForEach(photoStore.photos, id:  \.self){ photo in
-                        ImageItem(urlString: photo.src.portrait)
-                            .onAppear{
+                    ForEach(photoStore.photos, id: \.self){ photo in
+                        NavigationLink{
+                         ListItem(photo: photo)
+                        }label: {
+                            ImageItem(urlString: photo.src.portrait)
+                        }
+                        .onAppear{
                                 if photoStore.shouldLoadData(id: photo.id){
                                     print("true")
                                     currentPage += 1
@@ -32,7 +35,7 @@ struct ContentView: View {
                                         try await photoStore.photos += photoStore.getImages(page: currentPage)
                                     }
                                 }
-                            }
+                            }// onAppear
                     }//ForEach
                     
                 }//LazyGrid

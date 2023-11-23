@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct ImageItem: View {
     var urlString: String
     
     var body: some View {
-        AsyncImage(url: URL(string: urlString)) { image in
+        CachedAsyncImage(url: URL(string: urlString)) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
