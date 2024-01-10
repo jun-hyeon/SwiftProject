@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
-                LazyVGrid(columns: gridItem, spacing: 5){
+                LazyVGrid(columns: gridItem, spacing: 8){
                     ForEach(photoStore.photos, id: \.self){ photo in
                         NavigationLink{
                          ListItem(photo: photo)
