@@ -14,16 +14,33 @@ struct ListItem: View {
     
     var body: some View {
         VStack{
-            CachedAsyncImage(url: URL(string: photo.src.original)) { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-
-        } placeholder: {
-            Image(systemName: "arrow.circlepath")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        }
+            // before
+//      AsyncImage(url: URL(string: photo.src.original)) { image in
+//            image
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//
+//        } placeholder: {
+//            Image(systemName: "arrow.circlepath")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//        }
+            
+            // after cache
+            CachedAsyncImage(url: URL(string: photo.src.original)) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                case .empty:
+                    ProgressView()
+                case .failure(let error):
+                    Text("\(error.localizedDescription)")
+                @unknown default:
+                    fatalError()
+                }
+            }
         .clipShape(RoundedRectangle(cornerRadius: 25.0))
         .padding()
             

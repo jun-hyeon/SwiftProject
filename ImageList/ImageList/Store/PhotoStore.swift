@@ -12,6 +12,7 @@ class PhotStore: ObservableObject {
     
     let apiManager = APIManager.apiManager
     
+    
     func shouldLoadData(id: Int) -> Bool{
         return id == photos[photos.count - 10].id
     }
