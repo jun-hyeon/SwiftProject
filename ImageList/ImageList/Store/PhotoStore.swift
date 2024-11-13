@@ -9,7 +9,7 @@ import Foundation
 
 class PhotStore: ObservableObject {
     @Published var photos = [Photo]()
-    
+    private var currentPage = 1
     let apiManager = APIManager.apiManager
     
     
@@ -17,12 +17,16 @@ class PhotStore: ObservableObject {
         return id == photos[photos.count - 10].id
     }
     
-    func getImages(page: Int) async throws  -> [Photo]{
+    func getImages() async throws  -> [Photo]{
         
-        guard let data =  try await apiManager.load(page: page) else{
+        guard let data =  try await apiManager.load(page: currentPage) else{
             return [Photo]()
         }
         
         return data.photos
+    }
+    
+    func currentPageIncrement(){
+        currentPage += 1
     }
 }

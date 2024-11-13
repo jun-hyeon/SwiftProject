@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
+
 
 struct ImageItem: View {
     var urlString: String
@@ -27,8 +27,9 @@ struct ImageItem: View {
                 fatalError()
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-        .frame(width: 200, height: 150)
+        .border(Color.darkBrown, width: 1.0)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .padding()
         
         //  before
 //        AsyncImage(url: URL(string: urlString)) { image in
